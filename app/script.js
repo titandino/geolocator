@@ -1,9 +1,6 @@
-let markers = [];
-let map = null;
-
 window.initMap = function () {
   let usa = { lat: 42.877742, lng: -97.380979 };
-  map = new google.maps.Map(document.getElementById('map'), {
+  window.map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: usa,
   });
@@ -34,10 +31,10 @@ function populate() {
       });
       let marker = new google.maps.Marker({
         position: { lat: location.lat, lng: location.lon },
-        map: map,
+        map: window.map,
       });
       marker.addListener('click', function () {
-        info.open(map, marker);
+        info.open(window.map, marker);
       });
       markers.push(marker);
     });
