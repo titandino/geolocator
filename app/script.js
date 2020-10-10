@@ -23,17 +23,17 @@ function populate() {
       let info = new google.maps.InfoWindow({
         content:
           '<div class="map-info-box"><p>' +
-          data.city +
+          ip.city +
           ', ' +
-          data.regionName +
+          ip.regionName +
           ', ' +
-          data.zip +
+          ip.zip +
           '</p><p>' +
           ip +
           '</p></div>',
       });
       let marker = new google.maps.Marker({
-        position: { lat: data.lat, lng: data.lon },
+        position: { lat: ip.lat, lng: ip.lon },
         map: map,
       });
       marker.addListener('click', function () {
