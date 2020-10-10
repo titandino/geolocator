@@ -9,9 +9,11 @@ window.initMap = function () {
 function populate() {
   let ips = document.getElementById('ips').value.split(/[\r\n]+/);
 
-  window.markers.forEach(function (marker) {
-    marker.setMap(null);
-  });
+  if (window.markers) {
+    window.markers.forEach(function (marker) {
+      marker.setMap(null);
+    });
+  }
   window.markers = [];
   $.post('/api/geolocate/', { ips: ips }, data => {
     console.log(data)
