@@ -1,0 +1,59 @@
+//main: _modules.scss
+
+@import '_base';
+
+.card-container {
+  perspective: 1000px;
+}
+
+.card-container:hover .card, .card-container.hover .card {
+  transform: rotateY(180deg);
+}
+
+.card-container, .front, .back {
+  width: 100%;
+  height: inherit;
+}
+
+.card {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.project-heading {
+  p {
+    margin: 0;
+    color: $font_color;
+
+    &:first-of-type {
+      font-weight: bold;
+    }
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.project-body {
+  font-size: 1em;
+  text-align: center;
+  padding: 3%;
+}

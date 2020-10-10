@@ -1,0 +1,10 @@
+//main: _modules.scss
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+$header_font: "Oswald";
+
+$primary_color: #1C262F;
+$secondary_color: #252F39;
+$tertiary_color: lighten($secondary_color, 4);
+$font_color: #EEEEEF;

@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IP Viewer</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="home.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <main>
+        <section class="tab-section group" id="summary">
+          <section id="map" class="box-shad col box-100"></section>
+          <textarea id="ips" rows="4" cols="50" required placeholder="Paste IPs Here"></textarea>
+          <button id="popButton" class="button" type="button" value="Populate">Populate Map</button>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDo5EMQd_OwLVbM2qA0IoLq833_mw0oTCM&callback=initMap&libraries=&v=weekly" charset="utf-8"></script>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

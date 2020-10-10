@@ -1,0 +1,162 @@
+//main: _modules.scss
+
+@import '_base';
+
+.skills-list ul {
+  list-style: none;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: $font_color;
+  }
+}
+
+.tab-section {
+  clear: both;
+}
+
+#map {
+  height: 30em;
+}
+
+.map-info-box {
+  color: black;
+}
+
+select {
+  font-weight: bold;
+  background-color: $tertiary_color;
+  padding: 0.5%;
+  margin: 0.5%;
+  border: none;
+}
+
+.button {
+  font-weight: bold;
+  background-color: $tertiary_color;
+  padding: 0.6em;
+  margin: 0.5%;
+  border: none;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $primary_color;
+  &:hover {
+    transition: all .2s ease-in;
+    background-color: darken($tertiary_color, 10);
+  }
+}
+
+header {
+  display: inline-block;
+  overflow: hidden;
+  padding: 1%;
+
+  h1 {
+    padding-left: 1%;
+  }
+
+  h4 {
+    padding-left: 2%;
+    margin-left: 0.5%;
+  }
+
+  img {
+    height: 7em;
+    width: auto;
+    float: left;
+  }
+}
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+
+  first-child {
+    margin-left: 0;
+  }
+}
+
+.group:before,
+.group:after {
+  content:"";
+  display:table;
+}
+
+.group:after {
+  clear:both;
+}
+
+.group {
+  zoom: 1;
+}
+
+.box-100 {
+  padding: 1%;
+  margin: 0.5%;
+  width: 97%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.box-50 {
+  padding: 1%;
+  margin: 0.5%;
+  width: 97%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.hr {
+  height: 0.2rem;
+  background-color: $primary_color;
+  margin: 0.5rem 0;
+}
+
+input, textarea {
+  display: block;
+  margin-bottom: 2%;
+  width: 100%;
+  background-color: $secondary_color;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 1px solid lighten(black, 15);
+  padding: 0.3%;
+
+  &::-webkit-input-placeholder {
+    color: darken($font_color, 50);
+  }
+
+  &:focus {
+    outline: 0;
+    border: none;
+  }
+}
+
+.admintab-section {
+  padding: 1%;
+
+  form {
+    padding: 1%;
+    display: block;
+  }
+
+  h3 {
+    padding: 1%;
+  }
+}
+
+.box-shad {
+  background-color: $tertiary_color;
+  border-radius: 5px;
+}
