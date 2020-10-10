@@ -1,19 +1,16 @@
 const express = require('express');
-const http = require('http');
+const axios = require('axios');
+const bodyParser = require('body-parser');
 
 const router = express.Router();
 
-router.get('/geolocate/:ip', function(req, res, next) {
-  http.get('http://ip-api.com/json/'+req.params.ip, data => {
-    let body = '';
-
-    data.on('data', chunk => {
-        body += chunk;
-    });
-
-    data.on('end', () => {
-      res.json(JSON.parse(body));
-    });
+router.post('/geolocate', function(req, res, next) {
+  axios.post('http://ip-api.com/batch', req.body.ips)
+  .then(ipRes => {
+    res.json(ipRes.data);
+  }).catch(err => {
+    console.log(err)
+    res.json({ err: 'Error handling request' });
   });
 });
 

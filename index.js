@@ -14,7 +14,7 @@ const cert = fs.readFileSync( 'cert.pem' );
 
 const errors = require('./lib/errhandling');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'build')));
@@ -37,7 +37,7 @@ webpack(require('./webpack.config.js'), (err, stats) => {
   }
   console.log('Built webpage successfully...');
   let httpServer = http.createServer(app).listen(80, function() {
-    console.log('Portfolio server listening at http://' + httpsServer.address().address + ':' + httpsServer.address().port);
+    console.log('Portfolio server listening at http://' + httpServer.address().address + ':' + httpServer.address().port);
   });
   let httpsServer = https.createServer({
     key: key,
