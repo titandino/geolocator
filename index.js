@@ -1,15 +1,18 @@
 'use strict';
 
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const webpack = require('webpack');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const errors = require('./lib/errhandling');
+const key = fs.readFileSync( 'key.pem' );
+const cert = fs.readFileSync( 'cert.pem' );
 
-const PORT = process.env.PORT || 5555;
-let server;
+const errors = require('./lib/errhandling');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,7 +28,6 @@ app.use('/api', require('./routes/api'));
 
 app.use(errors);
 
-
 console.log('Building webpage...');
 webpack(require('./webpack.config.js'), (err, stats) => {
   if (err || stats.hasErrors()) {
@@ -34,7 +36,13 @@ webpack(require('./webpack.config.js'), (err, stats) => {
     return;
   }
   console.log('Built webpage successfully...');
-  server = app.listen(PORT, function() {
-    console.log('Portfolio server listening at http://' + server.address().address + ':' + server.address().port);
+  let httpServer = http.createServer(app).listen(80, function() {
+    console.log('Portfolio server listening at http://' + httpsServer.address().address + ':' + httpsServer.address().port);
+  });
+  let httpsServer = https.createServer({
+    key: key,
+    cert: cert
+  }, app).listen(443, function() {
+    console.log('Portfolio server listening at https://' + httpsServer.address().address + ':' + httpsServer.address().port);
   });
 });
