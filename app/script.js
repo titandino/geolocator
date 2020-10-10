@@ -16,24 +16,24 @@ function populate() {
     marker.setMap(null);
   });
   markers = [];
-  console.log(ips)
   $.post('/api/geolocate/', { ips: ips }, data => {
     console.log(data)
-    data.forEach(i => {
+    data.forEach(location => {
+      console.log(location)
       let info = new google.maps.InfoWindow({
         content:
           '<div class="map-info-box"><p>' +
-          data[i].city +
+          location.city +
           ', ' +
-          data[i].regionName +
+          location.regionName +
           ', ' +
-          data[i].zip +
+          location.zip +
           '</p><p>' +
-          data[i] +
+          location +
           '</p></div>',
       });
       let marker = new google.maps.Marker({
-        position: { lat: data[i].lat, lng: data[i].lon },
+        position: { lat: location.lat, lng: location.lon },
         map: map,
       });
       marker.addListener('click', function () {
