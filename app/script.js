@@ -19,21 +19,21 @@ function populate() {
   console.log(ips)
   $.post('/api/geolocate/', { ips: ips }, data => {
     console.log(data)
-    data.forEach(ip => {
+    data.forEach(i => {
       let info = new google.maps.InfoWindow({
         content:
           '<div class="map-info-box"><p>' +
-          ip.city +
+          data[i].city +
           ', ' +
-          ip.regionName +
+          data[i].regionName +
           ', ' +
-          ip.zip +
+          data[i].zip +
           '</p><p>' +
-          ip +
+          data[i] +
           '</p></div>',
       });
       let marker = new google.maps.Marker({
-        position: { lat: ip.lat, lng: ip.lon },
+        position: { lat: data[i].lat, lng: data[i].lon },
         map: map,
       });
       marker.addListener('click', function () {
